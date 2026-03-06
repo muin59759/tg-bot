@@ -13,7 +13,7 @@ TELEGRAM_BOT_TOKEN = "8487835280:AAEtYBZeTOT9vKQWhhTIvbzO9tk5lzhaCxc"
 TELEGRAM_CHAT_ID = "-1003221166532"
 HADI_API_URL = "http://147.135.212.197/crapi/had/viewstats"
 HADI_API_KEY = "RldTRDRSQkdngpFzh4lveGNXdl9SYIpYZmyCYXFq"
-POLL_INTERVAL = 3  # seconds
+POLL_INTERVAL = 1  # seconds
 
 SEEN_FILE = Path("seen_ids.json")
 
@@ -35,7 +35,7 @@ def save_seen(seen_set):
 
 def fetch_hadi():
     try:
-        resp = requests.get(HADI_API_URL, params={"token": HADI_API_KEY, "records": 200}, timeout=15)
+        resp = requests.get(HADI_API_URL, params={"token": HADI_API_KEY, "records": 50}, timeout=15)
         resp.raise_for_status()
         return resp.json()
     except Exception as e:
@@ -293,3 +293,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
